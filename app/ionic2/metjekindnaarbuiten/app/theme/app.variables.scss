@@ -32,4 +32,8 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   favorite:   #69BB7B
+  black:      #000,
+  blue:       #8CB6C1
 );
+
+$toolbar-background: color($colors, blue);

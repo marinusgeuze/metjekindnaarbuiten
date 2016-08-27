@@ -1,0 +1,19 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Info</ion-title>
+</ion-navbar>
+
+<ion-content padding class="info">
+  <ion-label>Description</ion-label>
+  <div>{{ info.description }}</div>
+  <ion-label>Provided by</ion-label>
+  <div>{{ info.provider }}</div>
+  <ion-label>Site</ion-label>
+  <a href="{{ info.site }}" >{{ info.site }}</a>
+  <ion-label>Version</ion-label>
+  <div>{{ info.version }}</div>
+  <ion-label>Updated on</ion-label>
+  <div>{{ info.updatedOn | date }}</div>
+</ion-content>

@@ -1,0 +1,16 @@
+[
+  {
+    "id" : "1",
+    "address" : "Eikelkamp 9",
+    "latitude": 52.18349,
+    "longitude": 5.42544,
+    "description" : "The most beautiful playground 1"
+  },
+  {
+    "id" : "2",
+    "address" : "De Lient 9",
+    "latitude": 52.18371,
+    "longitude": 5.43048,
+    "description" : "The most beautiful playground 2 with some extra word"
+  }
+]
