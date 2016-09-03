@@ -5,5 +5,6 @@ export class Playground {
     longitude:number;
     description:string;
     characteristics:string[];
-    distanceToCurrentLocation:number;
+    distanceToCurrentLocation:string;
+    primaryPicture:string;
 }

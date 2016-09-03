@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {Geolocation} from 'ionic-native';
 
 import {DataProvider} from '../../providers/data-provider/data-provider';
+import {PlaygroundDetailPage} from './detail'
 import {Playground} from '../../models/playground';
 
 declare var google;
@@ -27,6 +28,16 @@ export class PlaygroundListPage {
         this.dataProvider.playgroundSearch(term).then(playgrounds => this.loadData(playgrounds));
     }
 
+    clear() {
+        this.dataProvider.playgroundFindAll().then(playgrounds => this.loadData(playgrounds));
+    }
+
+    goToDetails(event, playground) {
+        this.nav.push(PlaygroundDetailPage, {
+            playground: playground
+        });
+    }
+
     private loadData(playgrounds:Playground[]) {
 
         this.playgrounds = playgrounds;
@@ -39,7 +50,7 @@ export class PlaygroundListPage {
 
                 var playgroundLocation = new google.maps.LatLng(playground.latitude, playground.longitude);
                 let distance = google.maps.geometry.spherical.computeDistanceBetween(currentLocation, playgroundLocation);
-                playground.distanceToCurrentLocation = Math.round(distance);
+                playground.distanceToCurrentLocation = Math.round(distance) + ' m';
             }
         }, (err) => {
             if (err.code == 1) {

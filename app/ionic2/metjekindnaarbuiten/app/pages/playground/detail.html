@@ -1,0 +1,14 @@
+<ion-navbar *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Playground</ion-title>
+</ion-navbar>
+
+<ion-content padding class="playground">
+    <img [src]="playground.primaryPicture">
+    <h1>{{ playground.address }}</h1>
+    <div class="distance">{{ playground.distanceToCurrentLocation }}</div>
+    <div class="description">{{ playground.description }}</div>
+    <div class="map"></div>
+</ion-content>

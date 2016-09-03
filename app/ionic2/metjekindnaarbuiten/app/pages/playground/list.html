@@ -8,12 +8,14 @@
 <ion-content padding class="playgrounds">
 
     <ion-list>
-        <ion-searchbar (input)="search($event)" debounce="500"></ion-searchbar>
-        <button ion-item *ngFor="let playground of playgrounds">
+        <ion-searchbar (input)="search($event)" (ionClear)="clear($event)" debounce="300"></ion-searchbar>
+        <button ion-item *ngFor="let playground of playgrounds" (click)="goToDetails($event, playground)" >
+            <ion-avatar item-left>
+                <img [src]="playground.primaryPictureThumb">
+                <div>{{ playground.distanceToCurrentLocation }}</div>
+            </ion-avatar>
             <h2>{{ playground.address }}</h2>
-            <div>{{ playground.description }}</div>
-            <div>Distance: {{ playground.distanceToCurrentLocation }}</div>
-            <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" item-right></ion-icon>
+            <p class="block-with-text">{{ playground.description }}</p>
         </button>
     </ion-list>
 
