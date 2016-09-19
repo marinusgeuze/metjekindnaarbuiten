@@ -12,8 +12,10 @@ export class PlaygroundDetailPage {
 
     playground:Playground;
     map:any = null;
+    marker:any = null;
 
     constructor(private nav:NavController, navParams:NavParams, private element:ElementRef) {
+
         this.playground = navParams.get('playground');
     }
 
@@ -39,6 +41,7 @@ export class PlaygroundDetailPage {
             animation: google.maps.Animation.DROP,
             position: this.map.getCenter()
         });
+        this.marker = marker;
 
         let content = '<h4>' + this.playground.address + '</h4>';
         let infoWindow = new google.maps.InfoWindow({
@@ -50,5 +53,14 @@ export class PlaygroundDetailPage {
         });
 
         google.maps.event.trigger(this.map, 'resize');
+    }
+
+    ionViewWillLeave() {
+        google.maps.event.clearInstanceListeners(window);
+        google.maps.event.clearInstanceListeners(document);
+        google.maps.event.clearInstanceListeners(this.map);
+        this.map.detach();
+        this.marker.setMap(null);
+        this.map = null;
     }
 }
