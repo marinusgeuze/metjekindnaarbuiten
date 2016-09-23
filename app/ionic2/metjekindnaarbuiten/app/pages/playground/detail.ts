@@ -38,7 +38,6 @@ export class PlaygroundDetailPage {
 
         let marker = new google.maps.Marker({
             map: this.map,
-            animation: google.maps.Animation.DROP,
             position: this.map.getCenter()
         });
         this.marker = marker;
@@ -52,15 +51,12 @@ export class PlaygroundDetailPage {
             infoWindow.open(this.map, marker);
         });
 
-        setTimeout(() => google.maps.event.trigger(this.map, 'resize'), 600);
+
+        setTimeout(() => this.refresh(), 600);
     }
 
-    ionViewWillLeave() {
-        google.maps.event.clearInstanceListeners(window);
-        google.maps.event.clearInstanceListeners(document);
-        google.maps.event.clearInstanceListeners(this.map);
-        this.map.detach();
-        this.marker.setMap(null);
-        this.map = null;
+    refresh() {
+        google.maps.event.trigger(this.map, 'resize');
+        this.map.setCenter(this.marker.getPosition());
     }
 }
