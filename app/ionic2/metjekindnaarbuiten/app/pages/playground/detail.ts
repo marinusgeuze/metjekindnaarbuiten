@@ -52,7 +52,7 @@ export class PlaygroundDetailPage {
             infoWindow.open(this.map, marker);
         });
 
-        google.maps.event.trigger(this.map, 'resize');
+        setTimeout(() => google.maps.event.trigger(this.map, 'resize'), 600);
     }
 
     ionViewWillLeave() {
