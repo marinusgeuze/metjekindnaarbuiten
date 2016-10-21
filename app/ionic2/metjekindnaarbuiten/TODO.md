@@ -1,3 +1,6 @@
+Storting op dichtstbijzijnde
+ Navigeren door plaatjes
+ Nauwkeurige GPS afdwingen
 Code review ready
 Start google maps voor navigatie
 Add chacteristics
