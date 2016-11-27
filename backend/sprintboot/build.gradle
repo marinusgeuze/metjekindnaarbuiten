@@ -1,16 +1,23 @@
 buildscript {
+	ext {
+		springBootVersion = '1.4.3.BUILD-SNAPSHOT'
+	}
 	repositories {
 		jcenter()
+		maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
 	}
   	dependencies { 
-   		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath('se.transmode.gradle:gradle-docker:1.2')
   	}
 }
 
 group = 'marinusgeuze'
 
-apply plugin: 'spring-boot'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'docker'
 
 configurations {
@@ -24,6 +31,8 @@ jar {
 
 repositories { 	
 	jcenter()
+	maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
 }
 
 sourceCompatibility = 1.8
@@ -32,7 +41,10 @@ targetCompatibility = 1.8
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-jetty")
-	//compile("org.springframework.boot:spring-boot-devtools")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.springframework.boot:spring-boot-devtools")
+	compile("org.postgresql:postgresql:9.4.1212.jre7")
+	//compile("com.h2database:h2")
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
