@@ -5,6 +5,14 @@
     padding-right: 0px;
   }
 
+  .button {
+    margin-top: 20px;
+    background-color: color($colors, blue);
+  }
+  .button:hover:not(.disable-hover) {
+    background-color: color($colors, blue);
+  }
+
   ion-list .item-inner {
     padding-right: 0px;
   }

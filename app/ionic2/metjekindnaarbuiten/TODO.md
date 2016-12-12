@@ -1,6 +1,9 @@
+REST API fouthandeling
+Form validation
+Make rest api url build dependend
 Storting op dichtstbijzijnde
- Navigeren door plaatjes
- Nauwkeurige GPS afdwingen
+Navigeren door plaatjes
+Nauwkeurige GPS afdwingen
 Code review ready
 Start google maps voor navigatie
 Add chacteristics

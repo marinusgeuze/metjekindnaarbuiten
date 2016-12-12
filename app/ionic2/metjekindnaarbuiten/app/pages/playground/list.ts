@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {Geolocation} from 'ionic-native';
 
 import {DataProvider} from '../../providers/data-provider/data-provider';
+import {PlaygroundAddPage} from './add'
 import {PlaygroundDetailPage} from './detail'
 import {Playground} from '../../models/playground';
 
@@ -21,6 +22,10 @@ export class PlaygroundListPage {
         dataProvider.playgroundFindAll().then(playgrounds => this.loadData(playgrounds));
     }
 
+    ionViewDidEnter() {
+        this.clear();
+    }
+
     search(searchTerm) {
 
         let term = searchTerm.target.value;
@@ -29,7 +34,11 @@ export class PlaygroundListPage {
     }
 
     clear() {
-        this.dataProvider.playgroundFindAll().then(playgrounds => this.loadData(playgrounds));
+        this.dataProvider.playgroundFindAll(true).then(playgrounds => this.loadData(playgrounds));
+    }
+
+    add() {
+        this.nav.push(PlaygroundAddPage, {});
     }
 
     goToDetails(event, playground) {

@@ -1,0 +1,10 @@
+.add-playground {
+
+  ion-label[floating] {
+    color: color($colors, blue);
+  }
+
+  .item-input.input-has-focus::after {
+    border-bottom-color: color($colors, blue);
+  }
+}

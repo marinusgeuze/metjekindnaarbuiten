@@ -1,0 +1,34 @@
+<ion-navbar *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add Playground</ion-title>
+    <ion-buttons end>
+        <button (click)="add()">Add</button>
+    </ion-buttons>
+</ion-navbar>
+
+<ion-content padding class="add-playground">
+    <ion-list>
+
+        <ion-item>
+            <ion-label fixed>Address</ion-label>
+            <ion-input type="text" [value]="playground.address" (input)="playground.address = $event.target.value"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Latitude</ion-label>
+            <ion-input type="number" [value]="playground.latitude" (input)="playground.latitude = $event.target.value"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Longitude</ion-label>
+            <ion-input type="number" [value]="playground.longitude" (input)="playground.longitude = $event.target.value"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Description</ion-label>
+            <ion-textarea rows="6" [value]="playground.description" (input)="playground.description = $event.target.value"></ion-textarea>
+        </ion-item>
+    </ion-list>
+</ion-content>
